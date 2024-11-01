@@ -22,7 +22,7 @@
                 role="menu" aria-orientation="vertical"
                 aria-labelledby="options-menu-0-button" tabindex="-1">
                 <a href="{{ route('files.download', $file) }}" class="block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-50"
-                    role="menuitem" tabindex="-1" id="options-menu-0-item-0" download>Download<span
+                    role="menuitem" tabindex="-1" id="options-menu-0-item-0">Download<span
                         class="sr-only">, Tuple</span></a>
             </div>
         </div>
