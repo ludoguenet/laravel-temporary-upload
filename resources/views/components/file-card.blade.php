@@ -1,8 +1,9 @@
 <li class="overflow-hidden rounded-xl border border-gray-200">
     <div class="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
-            alt="Tuple"
-            class="h-12 w-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10">
+        <img src="{{ asset('img/pdf-logo.png') }}"
+            alt="pdf"
+            class="h-12 w-12 flex-none rounded-lg bg-white p-1 object-cover ring-1 ring-gray-900/10"
+        >
         <div class="text-sm font-medium leading-6 text-gray-900">{{ $file->name }}</div>
         <div x-cloak x-data="{ open: false }" class="relative ml-auto">
             <button @click="open = ! open" type="button"
@@ -20,8 +21,7 @@
                 class="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
                 role="menu" aria-orientation="vertical"
                 aria-labelledby="options-menu-0-button" tabindex="-1">
-                <!-- Active: "bg-gray-50", Not Active: "" -->
-                <a href="{{ route('files.download', $file) }}" class="block px-3 py-1 text-sm leading-6 text-gray-900"
+                <a href="{{ route('files.download', $file) }}" class="block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-50"
                     role="menuitem" tabindex="-1" id="options-menu-0-item-0" download>Download<span
                         class="sr-only">, Tuple</span></a>
             </div>

@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use Illuminate\Support\Facades\Storage;
 
-class FileController extends Controller
+final class FileController extends Controller
 {
     public function index()
     {
@@ -18,21 +18,20 @@ class FileController extends Controller
 
     public function store()
     {
-        request()->validate([
+        $validated = request()->validate([
             'file' => [
                 'required',
-                'max:5120', // 5MB,
+                'max:5120',
                 'mimes:pdf',
-            ]
+            ],
         ]);
 
-        $upload = request('file');
-
-        $name = $upload->getClientOriginalName();
+        $file = $validated['file'];
+        $name = $file->getClientOriginalName();
 
         File::create([
             'name' => $name,
-            'path' => $upload->storeAs('uploads', $name, 'public'),
+            'path' => $file->storeAs('uploads', $name, 'public'),
         ]);
 
         return back();
